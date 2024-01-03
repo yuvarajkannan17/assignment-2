@@ -1,0 +1,39 @@
+
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#spinBtn{
+    width: 100px;
+    height: 40px;
+    background-color:gold;
+    border: 2px solid gold ;
+    cursor: pointer;
+    /* transition: transform 0.3s ease-in-out; */
+}
+#spinBtn:hover{
+    background-color: darkgoldenrod;
+    
+}
+
+.spinning{
+
+    animation: spin 5s linear infinite ;
+}
+
+@keyframes spin {
+    from{
+     
+        transform: rotate(0deg);
+
+    }
+    to{
+      
+        transform: rotate(360deg);
+
+    }
+    
+}

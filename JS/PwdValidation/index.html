@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PWD Validation</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div>
+        <form autocomplete="off" id="myForm">
+            <div >
+              <label for="name" >Name</label>
+              <input id="name" type="text" placeholder="Name.."/>
+            </div>
+            <div>
+                <label for="pwd" >Password</label>
+               <input id="pwd" type="password" placeholder="Password.."/>
+              <small style="color: red;" id="error"></small>
+            </div>
+            
+            <div>
+                
+              <button type="submit">Submit</button>
+            </div>
+          
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit',(e)=>{
+                e.preventDefault();
+            const pwd=document.getElementById('pwd').value;
+            const errorMsg=document.getElementById('error');
+
+            if(pwd.length<6){
+
+              errorMsg.textContent="Password must be 6 character"
+            }else{
+                alert('Form Is Submitted Successfully')
+                errorMsg.textContent=""
+            
+            }
+
+        })
+    </script>
+</body>
+</html>

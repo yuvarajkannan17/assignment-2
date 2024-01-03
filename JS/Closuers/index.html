@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closuers</title>
+</head>
+
+<body>
+
+    <h1>Closuers</h1>
+    <h4>closuers gives to access outer function property from inner function </h4>
+
+    <script>
+
+        
+
+        function mobile(tax) {
+
+
+
+            function mobilePrice(price) {
+
+
+
+                let totalAmount = price + tax;
+
+
+                console.log(" Mobile Total Amount Rs : ",totalAmount)
+
+
+            }
+            return mobilePrice;
+        }
+
+        const mobilePrice = mobile(1200);
+         mobilePrice(23000);
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

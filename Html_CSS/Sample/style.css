@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .file-upload-container {
+    text-align: center;
+  }
+  
+  .drop-area {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    cursor: pointer;
+  }
+  
+  .drop-text {
+    display: block;
+    margin-bottom: 10px;
+    color: #888;
+  }
+  
+  .file-preview {
+    margin-top: 20px;
+    width: 100px;
+    height: 100px;
+  }
+ .preview-img{
+  width: 10%;
+ }

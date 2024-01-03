@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spinning</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <button id="spinBtn" type="button" onclick="invoke()" class="spinCls">Spin</button>
+</body>
+<script>    
+
+  let btn= document.getElementById("spinBtn")
+  console.log(btn)
+    isSpinning=false;
+
+    function invoke(){
+
+        isSpinning=!isSpinning;
+
+        spinBtn.classList.toggle('spinning',isSpinning);
+
+    }
+
+</script>
+</html>

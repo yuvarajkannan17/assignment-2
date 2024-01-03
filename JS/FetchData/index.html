@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Data</title>
+</head>
+<body>
+    <h1>Fetch Data From Api</h1>
+    <div id="display">
+       
+    </div>
+
+    <script>
+        async function getData() {
+            try {
+                let response = await fetch('https://jsonplaceholder.typicode.com/todos/');
+
+                if (!response.ok) {
+                    throw new Error('Not getting a response while fetching the data');
+                } else {
+                    const data = await response.json();
+                    let displayUI = document.getElementById('display');
+                    
+                     console.log(data)
+                    displayUI.innerHTML = "";
+
+                    
+                    data.forEach((item) => {
+                        let paragraph = document.createElement('p');
+                        paragraph.textContent = item.title;
+                        displayUI.appendChild(paragraph);
+                    });
+                }
+            } catch (error) {
+                console.error('Error:', error.message);
+            } 
+
+        }
+
+        getData();
+    </script>
+</body>
+</html>

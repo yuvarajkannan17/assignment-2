@@ -1,0 +1,14 @@
+
+#container{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.myForm{
+  margin-bottom: 20px;
+}
+
+.errorMsg{
+  color: red;
+}

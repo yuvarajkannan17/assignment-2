@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Form </title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div>
+        <h1>Dynamic Form</h1>
+        <div id="container">
+
+            <div class="myForm">
+                <label for="name-1">Name-1:</label>
+                <input type="text" class="inputValue" name="name-1" placeholder="enter you name" />
+                <button type="button" onclick="remove(this)">Remove</button>
+
+
+            </div>
+
+        </div>
+
+        <div>
+            <button type="button" onclick="addField()">Add Field</button>
+            <button type="submit" onclick="onSubmit(this)"> Submit</button>
+
+        </div>
+    </div>
+
+    <script>
+
+        function addField() {
+
+            let formContainer = document.getElementById('container');
+
+            let numField = formContainer.children.length + 1;
+
+            let formDiv = document.createElement('div');
+            formDiv.classList.add('myForm')
+            formDiv.innerHTML = `
+            
+                 <label for=name-${numField}>Name-${numField}</label>
+                 <input type="text" class="inputValue" name=name-${numField} placeholder="enter you name"/>
+                 <button type="button" onclick="remove(this)">Remove</button>
+                
+                 
+            `
+
+            formContainer.appendChild(formDiv);
+
+        }
+
+        function onSubmit() {
+            let nameRegex = /^[a-zA-Z]+$/; // Updated regex to allow only letters
+
+            let formContainer = document.getElementById('container');
+            let inputValues = formContainer.querySelectorAll('.inputValue');
+
+            inputValues.forEach((input) => {
+                let value = input.value.trim();
+                let myForm = input.closest('.myForm');
+
+                if (nameRegex.test(value)) {
+                    // Create a new div for displaying the message
+                    let validMessage = document.createElement('div');
+                     validMessage.classList.add('validMsg');
+                    validMessage.textContent = `Hi,${value}`;
+
+                    // Append the valid message div to the myForm div
+                    myForm.appendChild(validMessage);
+                }else{
+                    
+                    let errorMessage = document.createElement('div');
+                    errorMessage.classList.add('errorMsg');
+                    errorMessage.textContent = "Please Enter Valid Name";
+
+                    // Append the valid message div to the myForm div
+                    myForm.appendChild(errorMessage);
+                }
+            });
+        }
+
+
+
+        function remove(button) {
+            let formContainer = document.getElementById('container');
+            let formDiv = button.closest('.myForm')
+            formContainer.removeChild(formDiv);
+        }
+    </script>
+
+</body>
+
+</html>

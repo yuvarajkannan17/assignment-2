@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagination</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <h1>Pagination</h1>
+    <div id="dataDisplay">
+       
+
+
+
+    </div>
+    <ul id="nation">
+
+    </ul>
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            let preview = document.getElementById('dataDisplay');
+            let nation = document.getElementById('nation');
+
+            let itemPerPage = 10;
+            let currentPage = 1;
+
+            let dataSet = Array.from({ length: 100 }, (_, index) => index + 1)
+
+            function displayData(page) {
+                let start = (page - 1) * itemPerPage;
+                let end = itemPerPage + start;
+                let pageData = dataSet.slice(start, end)
+                preview.innerHTML = '';
+
+                pageData.forEach((v) => {
+                    let page = document.createElement('div');
+                    page.innerHTML = `Item-${v}`
+                    preview.appendChild(page)
+
+                })
+
+            }
+
+
+            function updatePagination() {
+                const totalPage = Math.ceil(dataSet.length / itemPerPage);
+                       nation.innerHTML=''
+                for (let i = 1; i <= totalPage; i++) {
+
+                    let singlePage = document.createElement('li')
+                    singlePage.textContent = i;
+                    nation.appendChild(singlePage);
+
+                    singlePage.addEventListener('click', () => {
+
+                        currentPage = i;
+                        displayData(i);
+                      updatePagination();
+                    })
+
+                    if (i === currentPage) {
+                        singlePage.classList.add('active');
+                        
+                    }
+
+
+                }
+            }
+            displayData(currentPage);
+            updatePagination();
+
+
+        })
+
+    </script>
+
+
+</body>
+
+</html>

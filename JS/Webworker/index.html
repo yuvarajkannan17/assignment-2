@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>webworker</title>
+</head>
+<body>
+
+    <div>
+        <h1>Web Worker</h1>
+        <button type="button" onclick="welcome()">Welcome</button>
+        <button type="calculation" onclick="calculation()">Calcualtion</button>
+    </div>
+      <script>
+           let worker = new Worker('worker.js')
+
+         function welcome(){
+          alert('Greetings')
+         }
+         function calculation(){
+            worker.postMessage('Lets Start the work')
+
+           worker.addEventListener('message',(e)=>{
+               console.log(e.data)
+           })
+            
+        }
+      </script>
+
+</body>
+</html>

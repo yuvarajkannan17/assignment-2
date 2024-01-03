@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D3.js Data Visualization</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+
+<body>
+
+    <div id="graph">
+
+    </div>
+
+    <script>
+
+        const data = [10, 15, 20, 25, 30];
+
+        function updateChart() {
+
+            let chart = d3.select('div');
+
+            let bars = chart.selectAll('div').data(data);
+
+            bars.enter().append('div').style("height", d => d * 10 + 'px').text(d => d)
+
+            //  for update
+
+            bars.style("height", d => d * 10 + "px").text(d=>d)
+
+            setTimeout(() => {
+            data[0] = data[0] * 2;
+            console.log(data[0])
+            updateChart();
+        }, 2000)
+        }
+
+        updateChart();
+
+       
+
+
+
+
+    </script>
+</body>
+
+</html>

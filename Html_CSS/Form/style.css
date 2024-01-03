@@ -1,0 +1,25 @@
+
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    min-height: 15rem;
+    color: white;
+    background-color: black;
+    
+}
+
+button{
+    margin-top: 10px;
+    text-align: center;
+    background-color: green;
+    border: 2px solid gray;
+}
+
+input{
+    display:block;
+    margin-bottom: 10px;
+}
+
